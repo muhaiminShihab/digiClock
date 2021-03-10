@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+    <!-- CSS Links -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Heading for Doc -->
+    <h2 style="margin-bottom: 10px;">
+        Hover or Click the Screen to View Date & Time.
+    </h2>
+
+    <!-- Mobile Frame -->
+    <div class="mobile-frame">
+
+        <!-- Frame Top Border -->
+        <div class="top-border"></div>
+
+        <!-- Clock and Date -->
+        <div class="body-content">
+            welcome to DigiClock
+            <br>
+            <div id="time"></div>
+        </div>
+
+        <!-- Frame Bg Image -->
+        <div class="bg-image">
+            <img src="bg.jpg" alt="Background Image">
+        </div>
+    </div>
+
+    <!-- Date & Time Script -->
+    <script>
+        var timeDisplay = document.getElementById("time");
+
+        function refreshTime() {
+        var dateString = new Date().toLocaleString("en-US", {timeZone: "Asia/Dhaka"});
+        var formattedString = dateString.replace(", ", " - ");
+        timeDisplay.innerHTML = formattedString;
+        }
+        setInterval(refreshTime, 1000);
+    </script>
+</body>
+</html>
